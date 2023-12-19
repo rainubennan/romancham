@@ -13,7 +13,9 @@ class ChewieDemo extends StatefulWidget {
   final String title;
 
   @override
-  State<StatefulWidget> createState() => _ChewieDemoState();
+  State<StatefulWidget> createState() {
+    return _ChewieDemoState();
+  }
 }
 
 class _ChewieDemoState extends State<ChewieDemo> {
@@ -53,7 +55,17 @@ class _ChewieDemoState extends State<ChewieDemo> {
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: true,
-      looping: false,
+      looping: true,
+      customControls: const CupertinoControls(backgroundColor: Colors.white24, iconColor: Colors.white,),
+      additionalOptions: (context) {
+        return <OptionItem>[
+          OptionItem(
+            onTap: toggleVideo,
+            iconData: Icons.live_tv_sharp,
+            title: 'Toggle Video Src',
+          ),
+        ];
+      },
       hideControlsTimer: const Duration(seconds: 5),
     );
   }
@@ -62,7 +74,10 @@ class _ChewieDemoState extends State<ChewieDemo> {
 
   Future<void> toggleVideo() async {
     await _videoPlayerController.pause();
-    currPlayIndex = (currPlayIndex + 1) % srcs.length;
+    currPlayIndex += 1;
+    if (currPlayIndex >= srcs.length) {
+      currPlayIndex = 0;
+    }
     await initializePlayer();
   }
 
@@ -81,11 +96,19 @@ class _ChewieDemoState extends State<ChewieDemo> {
         ),
         body: Center(
           child: _chewieController != null &&
-                  _chewieController!.videoPlayerController.value.isInitialized
+                  _chewieController!
+                      .videoPlayerController.value.isInitialized
               ? Chewie(
                   controller: _chewieController!,
                 )
-              : CircularProgressIndicator(color: Colors.red.shade900),
+              : const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 20),
+                    Text('Loading'),
+                  ],
+                ),
         ),
       ),
     );
