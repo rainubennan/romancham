@@ -1,7 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:ott/view/newPasswors_screen.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
+  const OTPVerificationScreen({super.key});
+
   @override
   _OTPVerificationScreenState createState() => _OTPVerificationScreenState();
 }
@@ -127,7 +131,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                         String enteredOTP = _otpControllers!
                             .map((controller) => controller.text)
                             .join();
-                        print('Entered OTP: $enteredOTP');
+                        debugPrint('Entered OTP: $enteredOTP');
                         Navigator.push(
                             context,
                             MaterialPageRoute(

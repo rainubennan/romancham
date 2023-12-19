@@ -45,7 +45,7 @@ class ChangePassword extends StatelessWidget {
                     ),
                     hintText: 'Old Password',
                     hintStyle: GoogleFonts.poppins(
-                        fontSize: 14, color: Color(0xFF5A5757)),
+                        fontSize: 14, color: const Color(0xFF5A5757)),
                     prefixIcon:
                         const Icon(Icons.lock_outline, color: Colors.red),
                     suffixIcon: const Icon(Icons.visibility_outlined,

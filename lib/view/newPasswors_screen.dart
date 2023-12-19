@@ -1,6 +1,7 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ott/view/otpscreen.dart';
 
 class NewPassworsScreen extends StatefulWidget {
   const NewPassworsScreen({Key? key}) : super(key: key);

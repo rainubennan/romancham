@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ott/view/profile/select_avatar.dart';
@@ -14,18 +16,18 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff28282B),
+        backgroundColor: const Color(0xff28282B),
         foregroundColor: Colors.white,
       ),
-      backgroundColor: Color(0xff28282B),
+      backgroundColor: const Color(0xff28282B),
       body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(30),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(5),
+                const Padding(
+                  padding: EdgeInsets.all(5),
                   child: CircleAvatar(
                     radius: 70,
                     backgroundImage: NetworkImage(
@@ -46,11 +48,11 @@ class _EditProfileState extends State<EditProfile> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 15, right: 15),
+            padding: const EdgeInsets.only(left: 15, right: 15),
             child: Container(
               height: MediaQuery.of(context).size.height * .08,
               decoration: BoxDecoration(
-                  color: Color(0xff373535),
+                  color: const Color(0xff373535),
                   borderRadius: BorderRadius.circular(10)),
               child: Center(
                 child: TextField(
@@ -60,20 +62,20 @@ class _EditProfileState extends State<EditProfile> {
                         Icons.person_outline,
                         color: Colors.red.shade900,
                       ),
-                      hoverColor: Color(0xff373535),
-                      fillColor: Color(0xff373535),
+                      hoverColor: const Color(0xff373535),
+                      fillColor: const Color(0xff373535),
                       hintText: 'Your Name',
-                      hintStyle: GoogleFonts.poppins(color: Color(0xff5A5757))),
+                      hintStyle: GoogleFonts.poppins(color: const Color(0xff5A5757))),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
             child: Container(
               height: MediaQuery.of(context).size.height * .08,
               decoration: BoxDecoration(
-                  color: Color(0xff373535),
+                  color: const Color(0xff373535),
                   borderRadius: BorderRadius.circular(10)),
               child: Center(
                 child: TextField(
@@ -83,32 +85,32 @@ class _EditProfileState extends State<EditProfile> {
                         Icons.calendar_month_outlined,
                         color: Colors.red.shade900,
                       ),
-                      hoverColor: Color(0xff373535),
-                      fillColor: Color(0xff373535),
+                      hoverColor: const Color(0xff373535),
+                      fillColor: const Color(0xff373535),
                       hintText: 'Date of Birth',
-                      hintStyle: GoogleFonts.poppins(color: Color(0xff5A5757))),
+                      hintStyle: GoogleFonts.poppins(color: const Color(0xff5A5757))),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 25, left: 32),
+            padding: const EdgeInsets.only(top: 25, left: 32),
             child: Text(
               'Gender',
               style: GoogleFonts.poppins(color: Colors.white, fontSize: 18),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff28282B),
-                        side: BorderSide(color: Colors.white),
-                        shape: RoundedRectangleBorder()),
+                        backgroundColor: const Color(0xff28282B),
+                        side: const BorderSide(color: Colors.white),
+                        shape: const RoundedRectangleBorder()),
                     child: Text(
                       'Male',
                       style: GoogleFonts.poppins(color: Colors.white),
@@ -116,9 +118,9 @@ class _EditProfileState extends State<EditProfile> {
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff28282B),
-                        side: BorderSide(color: Colors.white),
-                        shape: RoundedRectangleBorder()),
+                        backgroundColor: const Color(0xff28282B),
+                        side: const BorderSide(color: Colors.white),
+                        shape: const RoundedRectangleBorder()),
                     child: Text(
                       'Female',
                       style: GoogleFonts.poppins(color: Colors.white),
@@ -126,9 +128,9 @@ class _EditProfileState extends State<EditProfile> {
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff28282B),
-                        side: BorderSide(color: Colors.white),
-                        shape: RoundedRectangleBorder()),
+                        backgroundColor: const Color(0xff28282B),
+                        side: const BorderSide(color: Colors.white),
+                        shape: const RoundedRectangleBorder()),
                     child: Text(
                       'Others',
                       style: GoogleFonts.poppins(color: Colors.white),

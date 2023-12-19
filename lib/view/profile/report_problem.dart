@@ -77,7 +77,7 @@ class ReportProblem extends StatelessWidget {
                     ),
                     hintText: 'Name',
                     hintStyle: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 14,
                           color: Color(0xFF5A5757)),
@@ -163,7 +163,7 @@ class ReportProblem extends StatelessWidget {
                                 color: Color(0xFF5A5757)),
                           ),
                         ),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
@@ -183,7 +183,7 @@ class ReportProblem extends StatelessWidget {
                     ),
                     hintText: 'Enter description',
                     hintStyle: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 12,
                           color: Color(0xFF5A5757)),
@@ -206,7 +206,7 @@ class ReportProblem extends StatelessWidget {
                           color: Color(0xFFBB2525)),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Text(
                         'Add image',
                         style: GoogleFonts.poppins(

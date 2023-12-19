@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ott/view/profile/edit_profile.dart';
@@ -35,7 +37,7 @@ class _ProfileState extends State<Profile> {
                           fontSize: 25)),
                 ),
               ),
-              content: Container(
+              content: SizedBox(
                 height: 70,
                 width: 300,
                 child: Center(
@@ -86,7 +88,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff28282B),
+      backgroundColor: const Color(0xff28282B),
       body: ListView(
         children: [
           Padding(
@@ -94,7 +96,7 @@ class _ProfileState extends State<Profile> {
             child: Row(
               children: [
                 const Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: CircleAvatar(
                     radius: 70,
                     backgroundImage: NetworkImage(
@@ -139,21 +141,21 @@ class _ProfileState extends State<Profile> {
               // height: MediaQuery.of(context).size.height * .174,
               width: MediaQuery.of(context).size.width * .2,
               decoration: BoxDecoration(
-                  color: Color(0xff373535),
+                  color: const Color(0xff373535),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.red.shade900)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       backgroundImage: AssetImage('assets/images/Icon.png'),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,27 +164,27 @@ class _ProfileState extends State<Profile> {
                           'Get',
                           style: GoogleFonts.poppins(
                             textStyle:
-                                TextStyle(color: Colors.white, fontSize: 20),
+                                const TextStyle(color: Colors.white, fontSize: 20),
                           ),
                         ),
                         Text(
                           'Premium',
                           style: GoogleFonts.poppins(
                             textStyle:
-                                TextStyle(color: Colors.white, fontSize: 20),
+                                const TextStyle(color: Colors.white, fontSize: 20),
                           ),
                         ),
                         Text(
                           'Enjoy Endless Streaming',
                           style: GoogleFonts.poppins(
                             textStyle:
-                                TextStyle(color: Colors.white, fontSize: 12),
+                                const TextStyle(color: Colors.white, fontSize: 12),
                           ),
                         )
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     icon: Icon(
                       Icons.arrow_right,
@@ -200,7 +202,7 @@ class _ProfileState extends State<Profile> {
             child: ListTile(
               onTap: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Wishlist()));
+                    .push(MaterialPageRoute(builder: (context) => const Wishlist()));
               },
               tileColor: const Color(0xff373535),
               selectedTileColor: Colors.red.shade900,
