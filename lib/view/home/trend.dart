@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ott/view/home/single_show.dart/single.dart';
 import 'package:ott/view/home/videoplay.dart';
+
+import 'single_show/single.dart';
 
 void main() {
   runApp(const MyApp());
