@@ -92,51 +92,52 @@ class _ProfileState extends State<Profile> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                    radius: 70,
-                    backgroundImage: NetworkImage(
-                      'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?size=626&ext=jpg',
-                    ),
+                const CircleAvatar(
+                  radius: 52,
+                  backgroundImage: NetworkImage(
+                    'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?size=626&ext=jpg',
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Robin K',
-                      style: GoogleFonts.poppins(
-                          color: Colors.white, fontSize: 24),
-                    ),
-                    Text(
-                      'abcdefg@gmail.com',
-                      style: GoogleFonts.poppins(
-                          color: Colors.white, fontSize: 14),
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const EditProfile()));
-                        },
-                        child: Text(
-                          'Edit Profile',
-                          style: GoogleFonts.poppins(
-                              color: Colors.red.shade900, fontSize: 13),
-                        ))
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Robin K',
+                        style: GoogleFonts.poppins(
+                            color: Colors.white, fontSize: 18),
+                      ),
+                      Text(
+                        'abcdefg@gmail.com',
+                        style: GoogleFonts.poppins(
+                            color: Colors.white, fontSize: 12),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EditProfile()));
+                          },
+                          style: const ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.zero)),
+                          child: Text(
+                            'Edit Profile',
+                            style: GoogleFonts.poppins(
+                                color: Colors.red.shade900, fontSize: 12),
+                          ))
+                    ],
+                  ),
                 )
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Container(
               // height: MediaQuery.of(context).size.height * .174,
               width: MediaQuery.of(context).size.width * .2,

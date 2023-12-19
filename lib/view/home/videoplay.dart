@@ -1,56 +1,93 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoPlayer extends StatefulWidget {
-  const VideoPlayer({Key? key}) : super(key: key);
+void main() => runApp(const ChewieDemo());
+
+class ChewieDemo extends StatefulWidget {
+  const ChewieDemo({
+    Key? key,
+    this.title = 'Chewie Demo',
+  }) : super(key: key);
+
+  final String title;
 
   @override
-  _VideoAppState createState() => _VideoAppState();
+  State<StatefulWidget> createState() => _ChewieDemoState();
 }
 
-class _VideoAppState extends State<VideoPlayer> {
-  late VideoPlayerController _controller;
-  late ChewieController _chewieController;
+class _ChewieDemoState extends State<ChewieDemo> {
+  final TargetPlatform _platform = TargetPlatform.iOS;
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/SampleVideo.mp4')
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    initializePlayer();
+  }
 
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    _chewieController?.dispose();
+    super.dispose();
+  }
+
+  List<String> srcs = [
+    "https://assets.mixkit.co/videos/preview/mixkit-spinning-around-the-earth-29351-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4"
+  ];
+
+  Future<void> initializePlayer() async {
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.parse(srcs[currPlayIndex]));
+
+    await _videoPlayerController.initialize();
+    _createChewieController();
+    setState(() {});
+  }
+
+  void _createChewieController() {
     _chewieController = ChewieController(
-      videoPlayerController: _controller,
-      aspectRatio: 16 / 9, // Adjust as needed
-      autoPlay: false,
+      videoPlayerController: _videoPlayerController,
+      autoPlay: true,
       looping: false,
+      hideControlsTimer: const Duration(seconds: 5),
     );
+  }
+
+  int currPlayIndex = 0;
+
+  Future<void> toggleVideo() async {
+    await _videoPlayerController.pause();
+    currPlayIndex = (currPlayIndex + 1) % srcs.length;
+    await initializePlayer();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Video Demo',
+      title: widget.title,
+      theme: ThemeData(
+        platform: _platform,
+      ),
       home: Scaffold(
         backgroundColor: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 0,
+        ),
         body: Center(
-            child: _controller.value.isInitialized
-                ? Container(
-                    color: Colors.red,
-                  )
-                : Chewie(controller: _chewieController)),
+          child: _chewieController != null &&
+                  _chewieController!.videoPlayerController.value.isInitialized
+              ? Chewie(
+                  controller: _chewieController!,
+                )
+              : CircularProgressIndicator(color: Colors.red.shade900),
+        ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _chewieController.dispose();
-    super.dispose();
   }
 }

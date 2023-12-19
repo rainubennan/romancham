@@ -116,7 +116,7 @@ class _SliderDisplayState extends State<SliderDisplay> {
                   child: Icon(Icons.play_arrow, color: Colors.white, size: 40)),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>const  VideoPlayer()));
+                    MaterialPageRoute(builder: (context) =>const ChewieDemo()));
               },
             ),
           ),
