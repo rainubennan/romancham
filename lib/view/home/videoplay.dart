@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 
 void main() => runApp(const ChewieDemo());
@@ -101,12 +102,12 @@ class _ChewieDemoState extends State<ChewieDemo> {
               ? Chewie(
                   controller: _chewieController!,
                 )
-              : const Column(
+              : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 20),
-                    Text('Loading'),
+                    CircularProgressIndicator(color: Colors.red.shade900,),
+                    const SizedBox(height: 20),
+                    Text('Loading', style: GoogleFonts.poppins(color: Colors.white))
                   ],
                 ),
         ),
