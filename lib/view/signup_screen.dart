@@ -19,7 +19,7 @@ class _SignupScreenState extends State<SignupScreen> {
     showDialog<String>(
         context: context,
         builder: (BuildContext context) {
-          return Padding(
+          return Container(
             padding: const EdgeInsets.all(10),
             child: AlertDialog(
               shape: RoundedRectangleBorder(
@@ -34,7 +34,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   size: 100,
                 ),
               ),
-              content: Container(
+              content: SizedBox(
                 width: double.infinity, // Expand to the maximum width
                 child: Column(
                   mainAxisSize: MainAxisSize.min, // Allow content to shrink
@@ -49,87 +49,83 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            isOlder();
-                          },
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            backgroundColor: Colors.red.shade900,
-                            foregroundColor: Colors.white,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Yes',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'I am an adult',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        isOlder();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                        const SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                        backgroundColor: Colors.red.shade900,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Yes',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
-                            backgroundColor: Colors.grey,
-                            foregroundColor: Colors.black,
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'No',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
+                          Text(
+                            'I am an adult',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 10,
                               ),
-                              Text(
-                                'I am Just a Kid',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                      ],
+                        backgroundColor: Colors.grey,
+                        foregroundColor: Colors.black,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'I am Just a Kid',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           );
-        });
+        }
+      );
   }
 
   String _selectedOption = 'option1';
@@ -310,163 +306,161 @@ class _SignupScreenState extends State<SignupScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 100),
-                        child: Text(
-                          'Create',
+                  Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: Text(
+                      'Create',
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Your Account',
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w300),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .1,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .08,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.face_outlined,
+                              color: Colors.red[900],
+                            ),
+                            hintText: 'Full Name',
+                            hintStyle: GoogleFonts.poppins()),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .08,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.account_circle_outlined,
+                              color: Colors.red[900],
+                            ),
+                            hintText: 'Email or Phone Number',
+                            hintStyle: GoogleFonts.poppins()),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .08,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.lock_outline_rounded,
+                              color: Colors.red[900],
+                            ),
+                            hintText: 'Enter Password',
+                            hintStyle: GoogleFonts.poppins()),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .08,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              Icons.lock_outline_rounded,
+                              color: Colors.red[900],
+                            ),
+                            hintText: 'Confirm Password',
+                            hintStyle: GoogleFonts.poppins()),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .8,
+                    height: MediaQuery.of(context).size.height * .08,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        signUp();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red[900],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
+                      child: Text('Sign Up',
                           style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'Your Account',
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .1,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        height: MediaQuery.of(context).size.height * .08,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.face_outlined,
-                                  color: Colors.red[900],
-                                ),
-                                hintText: 'Full Name',
-                                hintStyle: GoogleFonts.poppins()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        height: MediaQuery.of(context).size.height * .08,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.account_circle_outlined,
-                                  color: Colors.red[900],
-                                ),
-                                hintText: 'Email or Phone Number',
-                                hintStyle: GoogleFonts.poppins()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        height: MediaQuery.of(context).size.height * .08,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.lock_outline_rounded,
-                                  color: Colors.red[900],
-                                ),
-                                hintText: 'Enter Password',
-                                hintStyle: GoogleFonts.poppins()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .8,
-                        height: MediaQuery.of(context).size.height * .08,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.lock_outline_rounded,
-                                  color: Colors.red[900],
-                                ),
-                                hintText: 'Confirm Password',
-                                hintStyle: GoogleFonts.poppins()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * .8,
-                        height: MediaQuery.of(context).size.height * .08,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            signUp();
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red[900],
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15))),
-                          child: Text('Sign Up',
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(color: Colors.white),
-                              )),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Already have an account?',
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(color: Colors.white),
-                              )),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const LoginScreen()));
-                            },
-                            child: Text('Login',
-                                style: GoogleFonts.poppins(
-                                  textStyle:
-                                      const TextStyle(color: Colors.amber),
-                                )),
-                          )
-                        ],
+                            textStyle: const TextStyle(color: Colors.white),
+                          )),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Already have an account?',
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(color: Colors.white),
+                          )),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginScreen()));
+                        },
+                        child: Text('Login',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(color: Colors.amber),
+                            )),
                       )
                     ],
-                  ),
+                  )
+                ],
+              ),
                 ),
               ),
             ),
@@ -476,461 +470,3 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-
-// import 'dart:core';
-
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:ott/view/login_screen.dart';
-
-// class SignupScreen extends StatefulWidget {
-//   const SignupScreen({Key? key}) : super(key: key);
-
-//   @override
-//   _SignupScreenState createState() => _SignupScreenState();
-// }
-
-// class _SignupScreenState extends State<SignupScreen> {
-//   // bool isOlder = false;
-//   void signUp() {
-//     showDialog<String>(
-//         context: context,
-//         builder: (BuildContext context) {
-//           return Padding(
-//             padding: const EdgeInsets.all(10),
-//             child: AlertDialog(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10),
-//                   side: BorderSide(color: Colors.red.shade900)),
-//               insetPadding: EdgeInsets.zero,
-//               title: Center(
-//                   child: Icon(
-//                 Icons.security,
-//                 color: Colors.red.shade900,
-//                 size: 100,
-//               )),
-//               content: Container(
-//                 height: 70,
-//                 width: 100,
-//                 child: Center(
-//                     child: Text(
-//                   'Are you 18 or Older?',
-//                   style: GoogleFonts.poppins(
-//                       textStyle: const TextStyle(
-//                           color: Colors.black,
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: 25)),
-//                 )),
-//               ),
-//               actions: <Widget>[
-//                 SizedBox(
-//                   height: MediaQuery.of(context).size.height * .1,
-//                   child: ElevatedButton(
-//                     onPressed: () {
-//                       isOlder();
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                         shape: RoundedRectangleBorder(
-//                             borderRadius: BorderRadius.circular(5)),
-//                         backgroundColor: Colors.red.shade900,
-//                         foregroundColor: Colors.white),
-//                     child: Expanded(
-//                       child: Column(
-//                         mainAxisAlignment: MainAxisAlignment.center,
-//                         children: [
-//                           Text(
-//                             'Yes',
-//                             style: GoogleFonts.poppins(
-//                                 textStyle: const TextStyle(
-//                                     fontWeight: FontWeight.bold, fontSize: 20)),
-//                           ),
-//                           Text(
-//                             'I am an adult',
-//                             style: GoogleFonts.poppins(
-//                                 textStyle: const TextStyle(
-//                                     fontWeight: FontWeight.w300, fontSize: 10)),
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//                 SizedBox(
-//                   width: MediaQuery.of(context).size.width * .1,
-//                 ),
-//                 SizedBox(
-//                   height: MediaQuery.of(context).size.height * .1,
-//                   child: ElevatedButton(
-//                       onPressed: () {},
-//                       style: ElevatedButton.styleFrom(
-//                           shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(5)),
-//                           backgroundColor: Colors.grey,
-//                           foregroundColor: Colors.black),
-//                       child: Expanded(
-//                         child: Column(
-//                           mainAxisAlignment: MainAxisAlignment.center,
-//                           children: [
-//                             Text(
-//                               'No',
-//                               style: GoogleFonts.poppins(
-//                                   textStyle: const TextStyle(
-//                                       fontWeight: FontWeight.bold,
-//                                       fontSize: 20)),
-//                             ),
-//                             Text(
-//                               'I am Just a Kid',
-//                               style: GoogleFonts.poppins(
-//                                   textStyle: const TextStyle(
-//                                       fontWeight: FontWeight.w300,
-//                                       fontSize: 10)),
-//                             )
-//                           ],
-//                         ),
-//                       )),
-//                 ),
-//               ],
-//             ),
-//           );
-//         });
-//   }
-
-//   String _selectedOption = 'option1';
-//   void isOlder() {
-//     showDialog<String>(
-//         context: context,
-//         builder: (BuildContext context) {
-//           return Padding(
-//             padding: const EdgeInsets.all(12),
-//             child: AlertDialog(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10),
-//                   side: BorderSide(color: Colors.red.shade900)),
-//               insetPadding: EdgeInsets.zero,
-//               icon: Center(
-//                   child: Icon(
-//                 Icons.security,
-//                 color: Colors.red.shade900,
-//                 size: 120,
-//               )),
-//               title: Container(
-//                 height: 70,
-//                 width: 100,
-//                 child: Center(
-//                   child: Text(
-//                     'Are you 18 or Older?',
-//                     style: GoogleFonts.poppins(
-//                         textStyle: const TextStyle(
-//                             color: Colors.black,
-//                             fontWeight: FontWeight.bold,
-//                             fontSize: 25)),
-//                   ),
-//                 ),
-//               ),
-//               content: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   /// birth day
-//                   Container(
-//                     decoration: BoxDecoration(
-//                         border:
-//                             Border.all(color: Colors.red.shade900, width: 2)),
-//                     child: DropdownButton<String>(
-//                       value: _selectedOption,
-//                       onChanged: (value) {
-//                         setState(() {
-//                           _selectedOption = value!;
-//                         });
-//                       },
-//                       items: const [
-//                         DropdownMenuItem<String>(
-//                           value: 'option1',
-//                           child: Text('Option 1'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option2',
-//                           child: Text('Option 2'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option3',
-//                           child: Text('Option 3'),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     width: 10,
-//                   ),
-
-//                   ///birth month
-//                   Container(
-//                     decoration: BoxDecoration(
-//                         border:
-//                             Border.all(color: Colors.red.shade900, width: 2)),
-//                     child: DropdownButton<String>(
-//                       value: _selectedOption,
-//                       onChanged: (value) {
-//                         setState(() {
-//                           _selectedOption = value!;
-//                         });
-//                       },
-//                       items: const [
-//                         DropdownMenuItem<String>(
-//                           value: 'option1',
-//                           child: Text('Option 1'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option2',
-//                           child: Text('Option 2'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option3',
-//                           child: Text('Option 3'),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     width: 10,
-//                   ),
-
-//                   ///birth year
-//                   Container(
-//                     decoration: BoxDecoration(
-//                         border:
-//                             Border.all(color: Colors.red.shade900, width: 2)),
-//                     child: DropdownButton<String>(
-//                       value: _selectedOption,
-//                       onChanged: (value) {
-//                         setState(() {
-//                           _selectedOption = value!;
-//                         });
-//                       },
-//                       items: const [
-//                         DropdownMenuItem<String>(
-//                           value: 'option1',
-//                           child: Text('Option 1'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option2',
-//                           child: Text('Option 2'),
-//                         ),
-//                         DropdownMenuItem<String>(
-//                           value: 'option3',
-//                           child: Text('Option 3'),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//               actions: [
-//                 Center(
-//                   child: Container(
-//                     height: MediaQuery.of(context).size.height * .09,
-//                     width: MediaQuery.of(context).size.width * .3,
-//                     child: ElevatedButton(
-//                       style: ElevatedButton.styleFrom(
-//                           shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(10)),
-//                           foregroundColor: Colors.white,
-//                           backgroundColor: Colors.red.shade900),
-//                       child: const Text('Verify'),
-//                       onPressed: () {},
-//                     ),
-//                   ),
-//                 )
-//               ],
-//             ),
-//           );
-//         });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SingleChildScrollView(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           decoration: const BoxDecoration(
-//             image: DecorationImage(
-//                 image: AssetImage('assets/images/ott_bg2.png'),
-//                 fit: BoxFit.cover),
-//             color: Colors.transparent,
-//           ),
-//           child: Container(
-//             height: MediaQuery.of(context).size.height,
-//             width: MediaQuery.of(context).size.width,
-//             decoration: BoxDecoration(
-//               color: Colors.black.withOpacity(.5),
-//             ),
-//             child: Container(
-//               width: MediaQuery.of(context).size.width,
-//               decoration: BoxDecoration(
-//                 color: Colors.grey.withOpacity(.2),
-//               ),
-//               child: Column(
-//                 children: [
-//                   Padding(
-//                     padding: EdgeInsets.only(top: 100),
-//                     child: Text(
-//                       'Create',
-//                       style: GoogleFonts.poppins(
-//                         textStyle: const TextStyle(
-//                             color: Colors.white,
-//                             fontSize: 30,
-//                             fontWeight: FontWeight.w700),
-//                       ),
-//                     ),
-//                   ),
-//                   Text(
-//                     'Your Account',
-//                     style: GoogleFonts.poppins(
-//                       textStyle: const TextStyle(
-//                           color: Colors.white,
-//                           fontSize: 25,
-//                           fontWeight: FontWeight.w300),
-//                     ),
-//                   ),
-//                   SizedBox(
-//                     height: MediaQuery.of(context).size.height * .1,
-//                   ),
-//                   Container(
-//                     width: MediaQuery.of(context).size.width * .8,
-//                     height: MediaQuery.of(context).size.height * .08,
-//                     decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(15)),
-//                     child: Center(
-//                       child: TextFormField(
-//                         decoration: InputDecoration(
-//                             border: InputBorder.none,
-//                             prefixIcon: Icon(
-//                               Icons.face_outlined,
-//                               color: Colors.red[900],
-//                             ),
-//                             hintText: 'Full Name',
-//                             hintStyle: GoogleFonts.poppins()),
-//                       ),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 15,
-//                   ),
-//                   Container(
-//                     width: MediaQuery.of(context).size.width * .8,
-//                     height: MediaQuery.of(context).size.height * .08,
-//                     decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(15)),
-//                     child: Center(
-//                       child: TextFormField(
-//                         decoration: InputDecoration(
-//                             border: InputBorder.none,
-//                             prefixIcon: Icon(
-//                               Icons.account_circle_outlined,
-//                               color: Colors.red[900],
-//                             ),
-//                             hintText: 'Email or Phone Number',
-//                             hintStyle: GoogleFonts.poppins()),
-//                       ),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 15,
-//                   ),
-//                   Container(
-//                     width: MediaQuery.of(context).size.width * .8,
-//                     height: MediaQuery.of(context).size.height * .08,
-//                     decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(15)),
-//                     child: Center(
-//                       child: TextFormField(
-//                         decoration: InputDecoration(
-//                             border: InputBorder.none,
-//                             prefixIcon: Icon(
-//                               Icons.lock_outline_rounded,
-//                               color: Colors.red[900],
-//                             ),
-//                             hintText: 'Enter Password',
-//                             hintStyle: GoogleFonts.poppins()),
-//                       ),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 15,
-//                   ),
-//                   Container(
-//                     width: MediaQuery.of(context).size.width * .8,
-//                     height: MediaQuery.of(context).size.height * .08,
-//                     decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(15)),
-//                     child: Center(
-//                       child: TextFormField(
-//                         decoration: InputDecoration(
-//                             border: InputBorder.none,
-//                             prefixIcon: Icon(
-//                               Icons.lock_outline_rounded,
-//                               color: Colors.red[900],
-//                             ),
-//                             hintText: 'Confirm Password',
-//                             hintStyle: GoogleFonts.poppins()),
-//                       ),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 50,
-//                   ),
-//                   SizedBox(
-//                     width: MediaQuery.of(context).size.width * .8,
-//                     height: MediaQuery.of(context).size.height * .08,
-//                     child: ElevatedButton(
-//                       onPressed: () {
-//                         signUp();
-//                       },
-//                       style: ElevatedButton.styleFrom(
-//                           backgroundColor: Colors.red[900],
-//                           shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(15))),
-//                       child: Text('Sign Up',
-//                           style: GoogleFonts.poppins(
-//                             textStyle: const TextStyle(color: Colors.white),
-//                           )),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 30,
-//                   ),
-//                   Row(
-//                     mainAxisAlignment: MainAxisAlignment.center,
-//                     children: [
-//                       Text('Already have an account?',
-//                           style: GoogleFonts.poppins(
-//                             textStyle: const TextStyle(color: Colors.white),
-//                           )),
-//                       TextButton(
-//                         onPressed: () {
-//                           Navigator.pushReplacement(
-//                               context,
-//                               MaterialPageRoute(
-//                                   builder: (context) => const LoginScreen()));
-//                         },
-//                         child: Text('Login',
-//                             style: GoogleFonts.poppins(
-//                               textStyle: const TextStyle(color: Colors.amber),
-//                             )),
-//                       )
-//                     ],
-//                   )
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

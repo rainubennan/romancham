@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class Episode extends StatefulWidget {
@@ -19,7 +21,7 @@ class _EpisodeState extends State<Episode> {
           Container(
             height: 150,
             width: 100,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(image: AssetImage('assets/images/image2.png'))
             ),
           )

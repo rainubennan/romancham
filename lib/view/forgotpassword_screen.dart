@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:ott/view/otpscreen.dart';
 
@@ -75,7 +77,7 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        OTPVerificationScreen()));
+                                        const OTPVerificationScreen()));
                           },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red[900],

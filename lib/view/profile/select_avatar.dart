@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,13 +22,13 @@ class _SelectAvatarState extends State<SelectAvatar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff28282B),
+        backgroundColor: const Color(0xff28282B),
         appBar: AppBar(
           title: Text(
             'Select Avatar',
             style: GoogleFonts.poppins(color: Colors.white, fontSize: 18),
           ),
-          backgroundColor: Color(0xff28282B),
+          backgroundColor: const Color(0xff28282B),
           foregroundColor: Colors.white,
         ),
         body: Column(
@@ -68,7 +70,7 @@ class _SelectAvatarState extends State<SelectAvatar> {
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],

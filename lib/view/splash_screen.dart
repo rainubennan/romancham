@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -30,9 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 180),
             child: Center(
-              child: Container(
-                child: Image.asset('assets/images/logo.png'),
-              ),
+              child: Image.asset('assets/images/logo.png'),
             ),
           ),
           const Spacer(),

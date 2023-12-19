@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ott/view/login_screen.dart';
 import 'package:ott/view/splash_screen.dart';
 
 void main() {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade900),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

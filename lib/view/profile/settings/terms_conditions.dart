@@ -16,7 +16,7 @@ class TermsConditions extends StatelessWidget {
         titleTextStyle: GoogleFonts.poppins(color: Colors.white, fontSize: 18),
       ),
       body: Padding(
-        padding: EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

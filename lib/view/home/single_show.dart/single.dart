@@ -1,8 +1,7 @@
-import 'dart:ffi';
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ott/view/home/single_show.dart/episode.dart';
 
 class Single extends StatefulWidget {
   const Single({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class _SingleState extends State<Single> {
       backgroundColor: const Color(0xff28282B),
       // appBar: AppBar(backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child:
