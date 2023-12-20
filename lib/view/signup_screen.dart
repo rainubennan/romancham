@@ -24,6 +24,7 @@ class _SignupScreenState extends State<SignupScreen> {
           return Container(
             padding: const EdgeInsets.all(10),
             child: AlertDialog(
+              surfaceTintColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
                 side: BorderSide(color: Colors.red.shade900),
@@ -52,74 +53,79 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        isOlder();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            isOlder();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            backgroundColor: Colors.red.shade900,
+                            foregroundColor: Colors.white,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Yes',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'I am an adult',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        backgroundColor: Colors.red.shade900,
-                        foregroundColor: Colors.white,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Yes',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
+                            backgroundColor: Colors.grey,
+                            foregroundColor: Colors.black,
                           ),
-                          Text(
-                            'I am an adult',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 10,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'No',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
                               ),
-                            ),
+                              Text(
+                                'I am Just a Kid',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
                         ),
-                        backgroundColor: Colors.grey,
-                        foregroundColor: Colors.black,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'No',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'I am Just a Kid',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 10,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ],
                 ),
@@ -136,7 +142,7 @@ class _SignupScreenState extends State<SignupScreen> {
           return Padding(
             padding: const EdgeInsets.all(12),
             child: AlertDialog(
-              // backgroundColor: Colors.transparent,
+              surfaceTintColor: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                   side: BorderSide(color: Colors.red.shade900)),
@@ -201,7 +207,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               borderRadius: BorderRadius.circular(10)),
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.red.shade900),
-                      child: const Text('Verify'),
+                      child: Text('Verify', style: GoogleFonts.poppins(color: Colors.white)),
                       onPressed: () {},
                     ),
                   ),

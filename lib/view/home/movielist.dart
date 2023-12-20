@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ott/view/home/malayalamlist.dart';
 
 class MovieList extends StatelessWidget {
   List<String> thumbnails = [
@@ -107,7 +108,7 @@ class MovieList extends StatelessWidget {
                           icon: const Icon(Icons.double_arrow,
                               size: 30, color: Color(0xFF615E5E)),
                           onPressed: () {
-                            // Handle arrow button click
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Malayalamlist()));
                           },
                         ),
                       ),

@@ -42,6 +42,7 @@ dependencies:
   video_player: ^2.8.1
   chewie: ^1.7.4
   datepicker_dropdown: ^0.0.9
+  flutter_windowmanager: ^0.2.0
 
 dev_dependencies:
   flutter_test:

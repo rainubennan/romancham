@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 
@@ -27,6 +28,9 @@ class _ChewieDemoState extends State<ChewieDemo> {
   @override
   void initState() {
     super.initState();
+
+    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+    
     initializePlayer();
   }
 
