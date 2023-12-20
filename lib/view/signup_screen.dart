@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ott/view/login_screen.dart';
 
+import 'datepicker_dropdown.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
 
@@ -23,7 +25,7 @@ class _SignupScreenState extends State<SignupScreen> {
             padding: const EdgeInsets.all(10),
             child: AlertDialog(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(20),
                 side: BorderSide(color: Colors.red.shade900),
               ),
               insetPadding: EdgeInsets.zero,
@@ -127,8 +129,6 @@ class _SignupScreenState extends State<SignupScreen> {
         }
       );
   }
-
-  String _selectedOption = 'option1';
   void isOlder() {
     showDialog<String>(
         context: context,
@@ -138,7 +138,7 @@ class _SignupScreenState extends State<SignupScreen> {
             child: AlertDialog(
               // backgroundColor: Colors.transparent,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   side: BorderSide(color: Colors.red.shade900)),
               insetPadding: EdgeInsets.zero,
               icon: Center(
@@ -152,7 +152,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 width: 100,
                 child: Center(
                   child: Text(
-                    'Are you 18 or Older?',
+                    'Enter your Birthday',
                     style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
                             color: Colors.black,
@@ -161,102 +161,34 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              content: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  /// birth day
-                  Container(
-                    decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.red.shade900, width: 2)),
-                    child: DropdownButton<String>(
-                      value: _selectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedOption = value!;
-                        });
-                      },
-                      items: const [
-                        DropdownMenuItem<String>(
-                          value: 'option1',
-                          child: Text('Option 1'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option2',
-                          child: Text('Option 2'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option3',
-                          child: Text('Option 3'),
-                        ),
-                      ],
-                    ),
+              content: DropdownDatePicker(
+                inputDecoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide.none,
                   ),
-                  const SizedBox(
-                    width: 10,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-
-                  ///birth month
-                  Container(
-                    decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.red.shade900, width: 2)),
-                    child: DropdownButton<String>(
-                      value: _selectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedOption = value!;
-                        });
-                      },
-                      items: const [
-                        DropdownMenuItem<String>(
-                          value: 'option1',
-                          child: Text('Option 1'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option2',
-                          child: Text('Option 2'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option3',
-                          child: Text('Option 3'),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-
-                  ///birth year
-                  Container(
-                    decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.red.shade900, width: 2)),
-                    child: DropdownButton<String>(
-                      value: _selectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedOption = value!;
-                        });
-                      },
-                      items: const [
-                        DropdownMenuItem<String>(
-                          value: 'option1',
-                          child: Text('Option 1'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option2',
-                          child: Text('Option 2'),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'option3',
-                          child: Text('Option 3'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
+                isDropdownHideUnderline: true,
+                isFormValidator: true,
+                startYear: 1900,
+                endYear: 2023,
+                width: 10,
+                // selectedYear: 2005,
+                onChangedDay: (value) => debugPrint('onChangedDay: $value'),
+                onChangedMonth: (value) => debugPrint('onChangedMonth: $value'),
+                onChangedYear: (value) => debugPrint('onChangedYear: $value'),
+                boxDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.red.shade900, width: 2.0),
+                ),
+                showDay: true,
+                locale: "en",
+                hintDay: 'Day',
+                hintMonth: 'Month',
+                hintYear: 'Year',
               ),
               actions: [
                 Center(
