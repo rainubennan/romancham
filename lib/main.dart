@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 170, 28, 28)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade900),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

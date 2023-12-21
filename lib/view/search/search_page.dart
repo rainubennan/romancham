@@ -28,8 +28,9 @@ class SearchPage extends StatelessWidget {
                   child: Center(
                     child: TextField(
                       decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 25),
                           border: InputBorder.none,
-                          hintText: '    Search Here',
+                          hintText: 'Search Here',
                           hintStyle: GoogleFonts.poppins()),
                     ),
                   ),

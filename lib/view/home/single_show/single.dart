@@ -15,6 +15,23 @@ class _SingleState extends State<Single> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.6,
+        height: 50,
+        child: FloatingActionButton(
+          backgroundColor: Colors.red.shade900,
+          onPressed: (){},
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.play_arrow, color: Colors.white),
+              const SizedBox(width: 5),
+              Text("Play", style: GoogleFonts.poppins(color: Colors.white, fontSize: 16))
+            ],
+          ),
+        ),
+      ),
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff28282B),
       appBar: AppBar(
@@ -237,7 +254,8 @@ class _SingleState extends State<Single> {
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(height: 80),
           ],
         ),
       ),

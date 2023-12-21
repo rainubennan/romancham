@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ott/view/login_screen.dart';
 import 'package:ott/view/profile/edit_profile.dart';
 import 'package:ott/view/profile/report_problem.dart';
 import 'package:ott/view/profile/settings/settings.dart';
@@ -23,8 +24,9 @@ class _ProfileState extends State<Profile> {
           return Padding(
             padding: const EdgeInsets.all(5),
             child: AlertDialog(
+              surfaceTintColor: Colors.white,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   side: BorderSide(color: Colors.red.shade900)),
               insetPadding: EdgeInsets.zero,
               title: Center(
@@ -42,7 +44,7 @@ class _ProfileState extends State<Profile> {
                 width: 300,
                 child: Center(
                     child: Text(
-                  'Do you Really wnat to logout?',
+                  'Do you really want to logout ?',
                   style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
                           color: Colors.black,
@@ -53,9 +55,12 @@ class _ProfileState extends State<Profile> {
               actionsAlignment: MainAxisAlignment.spaceEvenly,
               actions: <Widget>[
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.red.shade900),
                           borderRadius: BorderRadius.circular(5)),
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.black),
@@ -67,7 +72,9 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreen()));
+                    },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
@@ -217,13 +224,10 @@ class _ProfileState extends State<Profile> {
                     textStyle: const TextStyle(color: Colors.white),
                     fontSize: 14),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
+              trailing: Icon(
                   Icons.arrow_right,
                   color: Colors.red.shade900,
-                  size: 30,
-                ),
+                  size: 28,
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
@@ -250,13 +254,10 @@ class _ProfileState extends State<Profile> {
                     textStyle: const TextStyle(color: Colors.white),
                     fontSize: 14),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
+              trailing: Icon(
                   Icons.arrow_right,
                   color: Colors.red.shade900,
                   size: 28,
-                ),
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
@@ -283,13 +284,10 @@ class _ProfileState extends State<Profile> {
                     textStyle: const TextStyle(color: Colors.white),
                     fontSize: 14),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
+              trailing: Icon(
                   Icons.arrow_right,
                   color: Colors.red.shade900,
                   size: 28,
-                ),
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
@@ -313,13 +311,10 @@ class _ProfileState extends State<Profile> {
                 style: GoogleFonts.poppins(
                     textStyle: const TextStyle(color: Colors.white)),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
+              trailing: Icon(
                   Icons.arrow_right,
                   color: Colors.red.shade900,
                   size: 28,
-                ),
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
@@ -343,13 +338,10 @@ class _ProfileState extends State<Profile> {
                     textStyle:
                         const TextStyle(color: Colors.white, fontSize: 14)),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
+              trailing: Icon(
                   Icons.arrow_right,
                   color: Colors.red.shade900,
                   size: 28,
-                ),
               ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),

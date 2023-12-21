@@ -36,6 +36,9 @@ class _ChewieDemoState extends State<ChewieDemo> {
 
   @override
   void dispose() {
+
+    FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
+
     _videoPlayerController.dispose();
     _chewieController?.dispose();
     super.dispose();

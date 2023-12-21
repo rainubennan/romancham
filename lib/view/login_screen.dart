@@ -167,7 +167,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildSocialMediaAvatar(Icons.g_mobiledata),
+                          InkWell(
+                            onTap: () {},
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Image.asset('assets/images/google.png', height: 20,)
+                            ),
+                          ),
                           const SizedBox(
                             width: 10,
                           ),

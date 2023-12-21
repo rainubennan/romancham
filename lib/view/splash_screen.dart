@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ott/view/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 10), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     });
@@ -26,21 +27,22 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 180),
+          Positioned(
             child: Center(
               child: Image.asset('assets/images/logo.png'),
             ),
           ),
-          const Spacer(),
-          const Center(
-            child: Text(
-              'Version 1.0',
-              style: TextStyle(color: Colors.white),
-            ),
+          Positioned(
+            bottom: 0,
+            width: MediaQuery.of(context).size.width,
+            child: Center(
+              child: Text(
+                'Version 1.0',
+                style: GoogleFonts.poppins(color: Colors.white),
+              ),
+            )
           )
         ],
       ),

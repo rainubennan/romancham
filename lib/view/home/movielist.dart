@@ -14,7 +14,7 @@ class MovieList extends StatelessWidget {
   ];
 
   List<String> titles = [
-    'Go where The Love Is \nPart 2',
+    'Go where The Love Is\nPart 2',
     'Keep Calm \nPart 2',
     'Electro Music Fest \nPart 2',
     'Love with No Limits \nPart 2',
@@ -34,11 +34,11 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: 520,
       width: MediaQuery.of(context).size.width * 0.85,
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, crossAxisSpacing: 20.0, mainAxisExtent: 220),
+            crossAxisCount: 3, crossAxisSpacing: 20.0, mainAxisExtent: 240),
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 6,
         itemBuilder: (BuildContext context, int index) {
@@ -50,7 +50,7 @@ class MovieList extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 150,
-                    width: 110,
+                    width: MediaQuery.of(context).size.width * 0.25,
                     child: Image.asset(
                       thumbnails[index],
                       fit: BoxFit.cover,
@@ -58,7 +58,7 @@ class MovieList extends StatelessWidget {
                   ),
                   Container(
                     padding: const EdgeInsets.only(top: 8),
-                    width: MediaQuery.of(context).size.width * 0.244,
+                    width: MediaQuery.of(context).size.width * 0.25,
                     child: Text(
                       titles[index],
                       style: GoogleFonts.poppins(
@@ -72,7 +72,7 @@ class MovieList extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.244,
+                    width: MediaQuery.of(context).size.width * 0.25,
                     child: Text(
                       subtitles[index],
                       style: GoogleFonts.poppins(
