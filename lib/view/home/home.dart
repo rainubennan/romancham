@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               MovieList(),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
             ],
           ),
         ),
